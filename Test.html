@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="parry-riposte">
+		<meta name="description" content="Easy Calls">
+		<title>Easy Calls - Berder Egorian 9-13 T4 2017 Seoul W GP</title>
+		<link rel="stylesheet" href="Test-css.css" type="text/css">
+		
+	</head>
+	
+	<body id="body">
+		<header>
+			<div id="header">
+				<div id="headernav">
+					<ul>
+						<li><a href="#About" class="topbar">About</a></li>
+						<li>
+							<div class="dropdown">
+							  <button class="dropmenu">Clips &#9662;</button>
+								  <div class="dropdown-content">
+								    <a href="#EasyCalls">Easy Calls</a>
+								    <a href="#SeparationCalls">Separation Calls</a>
+								    <a href="#OtherCalls">Other Calls</a>
+								    <a href="#OtherCalls">All Calls</a>
+								  </div>
+							</div>
+						</li>
+						<li><a href="#Analysis" class="topbar">Analysis</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		
+		<div id="videocall">
+			<div style='position:relative;padding-bottom:54%'>
+				<video frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0' allowfullscreen loop autoplay controls id="theaction">
+					<source src="https://giant.gfycat.com/MildSlimHerring.webm" type="video/webm">
+					<source src="https://giant.gfycat.com/MildSlimHerring.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
+		</div>
+		<div id="speedcontrols">
+			<button onclick="halfspeed()" type="button" class="half">1/2 Speed</button>
+			<button onclick="threequarters()" type="button" class="threefour">3/4 Speed</button>
+			<button onclick="normalspeed()" type="button" class="full">Normal Speed</button>
+		</div>
+		
+		<div id="vidname">
+			<p class="videoname">Berder Egorian 9-13 T4 2017 Seoul W GP</p>
+		</div>
+		
+		<div class="centered">	
+			<input type='button' onclick='changeText()' value='Show the Call' class="answerbutton"/>
+		</div>
+		<div>	
+			<p class="answertext"><b id='answer'></b></p>
+		</div> 
+		<div>	
+			<p class="explaintext"><b id='explain'></b></p>
+		</div> 
+			
+			<div id="Extras">
+				<ul>
+					<li><input type="button" onclick="location.href='https://gfycat.com/MildSlimHerring';" value="Clip via GfyCat" class="extra"></li>
+					<li><input type="button" onclick="location.href='https://gfycat.com/MildSlimHerring';" value="Full Bout on YouTube" class="extra"></li>
+				</ul>
+			</div>
+			
+	</body>
+	
+	<footer>
+		<div id="footer">
+			<li>
+				<div id="footerbuttons">
+					<input type="button" class="navbuttons" onclick="location.href='Previous';" value="&laquo; Previous"/>
+					<input type="button" class="navbuttons" onclick="location.href='Randomscript';" value="Random"/>
+					<input type="button" class="navbuttons" onclick="location.href='next';" value="Next &raquo;"/>
+				</div>
+			</li>
+		</div>
+	</footer>
+
+<!--- Scripts --->
+
+<!--- Show Answer Script --->
+	<script>
+		function changeText()
+			{
+		 document.getElementById('answer').innerHTML = 'Parry-Riposte, Touch Left';
+		 document.getElementById('explain').innerHTML = 'Because Because Because Because Because Because Because Because Because Because Because Because';
+			}
+	</script>
+	
+<!--- Speed Scripts --->
+	
+	<script>
+		var vid = document.getElementById("theaction");
+		
+		function halfspeed() { 
+		    vid.playbackRate = .5;
+		} 
+		
+		function threequarters() { 
+			vid.playbackRate = .75;
+		} 
+		
+		function normalspeed() { 
+		    vid.playbackRate = 1;
+		} 
+	</script> 
+
+</html>

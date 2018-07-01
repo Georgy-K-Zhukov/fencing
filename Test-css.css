@@ -1,0 +1,270 @@
+#body {
+	background: #868686;
+}
+
+/* Header Stuff*/
+
+#logo {
+	background: transparent;
+}
+
+.logo {
+	float: left;
+	padding-left: 20px;
+	padding-top: 2px;
+}
+
+#header {
+	background-color: #0C40FF;
+	border: 5px solid #03CFFF;
+	color: #ecf3f9 !important;
+	text-align: center;
+}
+
+#headernav li {
+	display: inline;	
+	padding: 0px 10px;
+	}
+
+.topbar {
+	color: #31019F;
+	padding: 5px 10px;
+	border: 0px solid #03CFFF;
+	background: #FFB100;
+	font-size: large;
+	font-family: sans-serif	
+}
+
+.topbar:hover {
+	background: #FFC43D;
+}
+
+.topbar:active {
+	background: #E9A200;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropmenu {
+	color: #31019F;
+	padding: 5px 10px;
+	border: 1px solid #007590;
+	background: #FFB100;
+	font-size: large;	
+	font-family: sans-serif;
+	text-decoration: underline;
+	
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFB100;
+    border: 1px solid #007590;
+    min-width: 100%;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: #31019F;
+    border: 1px solid #007590;
+    font-family: sans-serif;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #FFC43D;
+	}
+
+.dropdown-content a:active {
+	background-color: #E9A200;
+	}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropdown:hover .dropmenu {
+	background: #FFC43D;
+}
+
+
+/* GIF */
+
+#videocall {
+	padding-top: 5px;
+}
+
+#vidname {
+	padding: 5px 0px;
+}
+
+.videoname {
+	font-size: large;
+	text-align: center;
+	font-weight: bold;
+}
+
+#speedcontrols {
+	text-align: center;
+}
+
+.half {
+	background-color: #540AFF;
+	color: white;
+}
+.half:hover {
+	background-color: #8450FD;
+	color: white;
+}
+.half:active {
+	background-color: #31019F;
+	color: white;
+}
+
+.threefour {
+	background-color: #FFB100;
+	color: black;
+}
+.threefour:hover {
+	background-color: #FFC43D;
+	color: black;
+}
+.threefour:active {
+	background-color: #E9A200;
+	color: white;
+}
+
+.full {
+	background-color: #03CFFF;
+	color: black;
+}
+
+.full:hover {
+	background-color: #41D9FC;
+	color: black;
+}
+
+.full:active {
+	background-color: #007590;
+	color: white;
+}
+
+
+/* Call Stuff */
+
+.centered {
+	margin-left: auto;
+	margin-right: auto;
+	width: max-content;
+}
+
+.answerbutton  {
+    background-color: #0C40FF;
+    color: white;
+    padding: 10px;
+    width: 300px;	
+    font-weight: bold;
+} 
+
+.answerbutton:hover {
+	background: #5377FD;
+}
+
+.answerbutton:active {
+	background: #01229E;
+}
+
+.answertext {
+	font-size: x-large;
+	text-align: center;	
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.explaintext {
+	font-size: large;
+	text-align: center;	
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Extra Resources */
+
+#extras {
+	padding: 0px 0px 5px 0px;
+	text-align: center;
+}
+
+#extras ul {
+	display: inline;
+}
+
+#extras li {
+	display: inline;
+	padding: 10px;
+}
+
+.extra {
+	padding: 0px 5px;
+	background: #5377FD;
+	color: white;
+	width: 20%;
+}
+.extra:hover {
+	background: #41D9FC;
+	color: black;
+}
+
+.extra:active {
+	background: #8450FD;
+}
+
+/* Footer Stuff */
+
+#footerbuttons {
+	padding: 2px 5px;
+	color: #007590 !important;
+	font-size: x-large;
+	text-align: center;
+}
+
+#footer {
+	background-color: #0C40FF;
+	padding: 0 0;
+	color: #ecf3f9 !important;
+	border: 5px solid #03CFFF;
+	width: 100%;
+	bottom:0;
+	left:0;
+	}
+	
+
+.navbuttons  {
+    background-color: #FFB100;
+    color: #01229E;
+    padding: 10px 40px;
+} 
+
+.navbuttons:hover {
+	background: #FFC43D;
+}
+
+.navbuttons:active {
+	background: #E9A200;
+}
+
+#footer li {
+    display: inline;
+}
