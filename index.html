@@ -5,17 +5,6 @@
     <meta name="description" content="Easy Calls" />
     <title>Easy Calls - Berder Egorian 9-13 T4 2017 Seoul W GP</title>
     <link rel="stylesheet" href="index.css" type="text/css" />
-    <script>
-      let data;
-      function loadData(d) {
-        data = d;
-      }
-    </script>
-    <script
-      type="text/javascript"
-      language="javascript"
-      src="https://spreadsheets.google.com/feeds/list/2PACX-1vR3_2tZBgtITeazdt1icv41EhIOhx-flEmOfWLi3h-rs-pBgbkyeeYzW2KQtbgwkiUZ_qUbF5BzLiS5/od6/public/values?alt=json-in-script&callback=loadData"
-    ></script>
   </head>
 
   <body id="body">
@@ -171,7 +160,8 @@
 
   <!--- Populate Page Script --->
   <script>
-    const urlParams = new URLSearchParams(window.location.search);
+    const rows = [];
+    /*const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
 
     const videoWebM = document.getElementById("videoWebM");
@@ -184,6 +174,55 @@
     videoMp4.src = action.gsx$hdwebmlink.$t;
     theAction.load();
 
-    videoTitle.innerHTML = action.gsx$videotitle.$t;
+    videoTitle.innerHTML = action.gsx$videotitle.$t;*/
+    async function fetchSheetData() {
+      const res = await fetch(
+        "https://spreadsheets.google.com/feeds/cells/114G_p1m7iPEFBlaClJOYrdfn4LdS3fmR1v1YfuY035M/1/public/full?alt=json"
+      );
+      if (!res.ok) {
+        throw new Error(`Server returned error with status code ${res.status}`);
+      }
+      const jsonBody = await res.json();
+      console.log("JSON BODY");
+      console.log(jsonBody);
+      processSheetData(jsonBody);
+    }
+
+    /* The field names for each entry.
+     * We use this array to get the field name that
+     * we need for the corresponding entry in the raw
+     * data. Basically, we loop through each row 11 entries at a time
+     */
+    const fieldNames = [
+      "videoTitle",
+      "callAnswer",
+      "callExplanation",
+      "callType",
+      "callGroup",
+      "hdWebMLink",
+      "hdMP4Link",
+      "gfyLink",
+      "tags",
+      "youtubeLink",
+      "exclude"
+    ];
+    /*
+     * Processes the raw JSON returned by Google Sheets into an array of objects
+     * Each object has the same fields, as detailed above in the array fieldNames
+     */
+    function processSheetData(jsonBody) {
+      const entries = jsonBody.feed.entry;
+      let currentRow = {};
+      // Starting with 1 cause we skip the header row
+      for (let i = 1; i < entries.length; i++) {
+        const entry = entries[i];
+        currentRow[fieldNames[i % 11]] = entry.content["$t"];
+        if ((i + 1) % 11 === 0) {
+          rows.push(currentRow);
+          currentRow = {};
+        }
+      }
+    }
+    fetchSheetData();
   </script>
 </html>
