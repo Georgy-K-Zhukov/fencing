@@ -175,6 +175,22 @@
     theAction.load();
 
     videoTitle.innerHTML = action.gsx$videotitle.$t;*/
+
+    /* Fetches the sheet data. This is an async function.
+     * Apologies for using something fancy, but frankly
+     * I wasn't sure the Promise version would have been much better
+     * (let alone the callback version). Basically this fetches the data,
+     * checks that we got a good response, then turns it into json.
+     * It then calls processSheetData
+     *
+     * If you're wondering, hey Nick, why did you call processSheetData
+     * instead of returning the jsonBody out and then calling it there?
+     * Well, that's because of async functions. Basically, async functions
+     * don't return regular values. They return Promises, which you can
+     * think of as an object that may eventually receive a value. You can
+     * tell a Promise what to do when it receives said value. If this confuses
+     * you (as it did to me), just trust me, this works better.
+     */
     async function fetchSheetData() {
       const res = await fetch(
         "https://spreadsheets.google.com/feeds/cells/114G_p1m7iPEFBlaClJOYrdfn4LdS3fmR1v1YfuY035M/1/public/full?alt=json"
@@ -183,15 +199,13 @@
         throw new Error(`Server returned error with status code ${res.status}`);
       }
       const jsonBody = await res.json();
-      console.log("JSON BODY");
-      console.log(jsonBody);
       processSheetData(jsonBody);
     }
 
     /* The field names for each entry.
-     * We use this array to get the field name that
-     * we need for the corresponding entry in the raw
-     * data. Basically, we loop through each row 11 entries at a time
+     * We use this array to get the field name that we need
+     * for the corresponding entry in the raw data. Basically
+     * this allows us to link the column numbers to the field names.
      */
     const fieldNames = [
       "videoTitle",
@@ -206,6 +220,15 @@
       "youtubeLink",
       "exclude"
     ];
+    // Each object we're producing has 11 fields. To figure out
+    // which field name corresponds to this entry, we need the
+    // column number which is (i % 11), or the remainder when
+    // you divide the entries by 11, the number of columns in
+    // a row.
+    function getFieldName(entryIndex) {
+      return fieldNames[entryIndex % 11];
+    }
+
     /*
      * Processes the raw JSON returned by Google Sheets into an array of objects
      * Each object has the same fields, as detailed above in the array fieldNames
@@ -213,10 +236,14 @@
     function processSheetData(jsonBody) {
       const entries = jsonBody.feed.entry;
       let currentRow = {};
-      // Starting with 1 cause we skip the header row
-      for (let i = 1; i < entries.length; i++) {
+      // Starting with 11 cause we skip the header row
+      for (let i = 11; i < entries.length; i++) {
         const entry = entries[i];
-        currentRow[fieldNames[i % 11]] = entry.content["$t"];
+        // We get the field name for the entry and set that
+        // field in currentRow to the content of the entry.
+        currentRow[getFieldName(i)] = entry.content["$t"];
+        // If we've reached the last entry in the current row, we add it
+        // to the array of rows and then set currentRow to a new object
         if ((i + 1) % 11 === 0) {
           rows.push(currentRow);
           currentRow = {};
