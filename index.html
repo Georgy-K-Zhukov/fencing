@@ -6,6 +6,28 @@
   </head>
 
   <body id="body">
+    <header>
+      <div id="header">
+        <div id="headernav">
+          <ul>
+            <li><a href="#About" class="topbar">About</a></li>
+            <li>
+              <div class="dropdown">
+                <button class="dropmenu">Clips &#9662;</button>
+                <div class="dropdown-content">
+                  <a href="#EasyCalls">Easy Calls</a>
+                  <a href="#SeparationCalls">Separation Calls</a>
+                  <a href="#OtherCalls">Other Calls</a>
+                  <a href="#OtherCalls">All Calls</a>
+                </div>
+              </div>
+            </li>
+            <li><a href="#Analysis" class="topbar">Analysis</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
     <div id="videoCall">
       <div>
         <video
@@ -66,6 +88,33 @@
       </ul>
     </div>
   </body>
+
+  <footer>
+      <div id="footer">
+          <li>
+              <div id="footerbuttons">
+                  <input
+                          type="button"
+                          class="navbuttons"
+                          onclick="location.href='Previous';"
+                          value="&laquo; Previous"
+                  />
+                  <input
+                          type="button"
+                          class="navbuttons"
+                          onclick="location.href='Randomscript';"
+                          value="Random"
+                  />
+                  <input
+                          type="button"
+                          class="navbuttons"
+                          onclick="location.href='next';"
+                          value="Next &raquo;"
+                  />
+              </div>
+          </li>
+      </div>
+  </footer>
 
   <!--- Scripts --->
   <!--- Show Answer Script --->
