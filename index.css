@@ -22,7 +22,7 @@
 }
 
 #headernav li {
-	display: inline;	
+	display: inline;
 	padding: 0px 10px;
 	}
 
@@ -32,7 +32,7 @@
 	border: 0px solid #03CFFF;
 	background: #FFB100;
 	font-size: large;
-	font-family: sans-serif	
+	font-family: sans-serif
 }
 
 .topbar:hover {
@@ -53,10 +53,10 @@
 	padding: 5px 10px;
 	border: 1px solid #007590;
 	background: #FFB100;
-	font-size: large;	
+	font-size: large;
 	font-family: sans-serif;
 	text-decoration: underline;
-	
+
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -100,21 +100,22 @@
 
 /* GIF */
 
-#videocall {
+#videoCall {
 	padding-top: 5px;
 }
 
-#vidname {
+#videoCall div {
+	position:relative;
+	padding-bottom:54%;
+}
+
+#videoName {
 	padding: 5px 0px;
-}
-
-.videoname {
-	font-size: large;
 	text-align: center;
-	font-weight: bold;
+	font-size: 30px;
 }
 
-#speedcontrols {
+#speedControls {
 	text-align: center;
 }
 
@@ -172,9 +173,9 @@
     background-color: #0C40FF;
     color: white;
     padding: 10px;
-    width: 300px;	
+    width: 300px;
     font-weight: bold;
-} 
+}
 
 .answerbutton:hover {
 	background: #5377FD;
@@ -184,20 +185,25 @@
 	background: #01229E;
 }
 
-.answertext {
+.answerText {
 	font-size: x-large;
-	text-align: center;	
+	text-align: center;
 	width: 40%;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-.explaintext {
+.explainText {
 	font-size: large;
-	text-align: center;	
+	text-align: center;
 	width: 40%;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+/* The answer and explain is hidden when the page laods */
+#answer, #explain {
+	display: none;
 }
 
 /* Extra Resources */
@@ -216,11 +222,30 @@
 	padding: 10px;
 }
 
-.extra {
-	padding: 0px 5px;
+.button {
+	display:inline-block;
 	background: #5377FD;
 	color: white;
 	width: 20%;
+	text-decoration: none;
+	padding: 2px 6px 2px 6px;
+	border-top: 1px solid #CCCCCC;
+	border-right: 1px solid #666666;
+	border-bottom: 1px solid #666666;
+	border-left: 1px solid #CCCCCC;
+}
+
+.extra {
+	display:inline-block;
+	background: #5377FD;
+	color: white;
+	width: 20%;
+	text-decoration: none;
+	padding: 2px 6px 2px 6px;
+	border-top: 1px solid #CCCCCC;
+	border-right: 1px solid #666666;
+	border-bottom: 1px solid #666666;
+	border-left: 1px solid #CCCCCC;
 }
 .extra:hover {
 	background: #41D9FC;
@@ -249,13 +274,13 @@
 	bottom:0;
 	left:0;
 	}
-	
+
 
 .navbuttons  {
     background-color: #FFB100;
     color: #01229E;
     padding: 10px 40px;
-} 
+}
 
 .navbuttons:hover {
 	background: #FFC43D;
