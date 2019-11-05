@@ -10,7 +10,7 @@
       <div id="header">
         <div id="headernav">
           <ul>
-            <li><a href="#About" class="topbar">About</a></li>
+            <li><a href="about.html" class="topbar">About</a></li>
             <li>
               <div class="dropdown">
                 <button class="dropmenu">Clips &#9662;</button>
@@ -18,7 +18,7 @@
                   <a href="#EasyCalls">Easy Calls</a>
                   <a href="#SeparationCalls">Separation Calls</a>
                   <a href="#OtherCalls">Other Calls</a>
-                  <a href="#OtherCalls">All Calls</a>
+                  <a href="index.html?id=1">All Calls</a>
                 </div>
               </div>
             </li>
@@ -93,24 +93,9 @@
       <div id="footer">
           <li>
               <div id="footerbuttons">
-                  <input
-                          type="button"
-                          class="navbuttons"
-                          onclick="location.href='Previous';"
-                          value="&laquo; Previous"
-                  />
-                  <input
-                          type="button"
-                          class="navbuttons"
-                          onclick="location.href='Randomscript';"
-                          value="Random"
-                  />
-                  <input
-                          type="button"
-                          class="navbuttons"
-                          onclick="location.href='next';"
-                          value="Next &raquo;"
-                  />
+	              <a class="navbuttons" id="prevButton">Previous</a>
+	              <a class="navbuttons" id="randButton">Random Action</a>
+	              <a class="navbuttons" id="nextButton">Next</a>
               </div>
           </li>
       </div>
@@ -301,6 +286,12 @@
       // Set the gfycat and youtube links
       gfycatLink.href = action.gfyLink;
       youtubeLink.href = action.youtubeLink;
+      
+      // Navigation stuff, AKA georgy hopefully not fucking things up
+      nextButton.href = '?id=' + id + 1;
+	  prevButton.href = '?id=' + id - 1;
+	  randButton.href = '?id=' + Math.floor(Math.random() * Math.floor(actions.length));
+      
     }
 
     // We have to actually run the loadPage function

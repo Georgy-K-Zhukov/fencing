@@ -267,7 +267,7 @@
 
 #footer {
 	background-color: #0C40FF;
-	padding: 0 0;
+	padding: 4px 0px;
 	color: #ecf3f9 !important;
 	border: 5px solid #03CFFF;
 	width: 100%;
@@ -279,7 +279,7 @@
 .navbuttons  {
     background-color: #FFB100;
     color: #01229E;
-    padding: 10px 40px;
+    padding: 2px 40px;
 }
 
 .navbuttons:hover {
