@@ -93,9 +93,9 @@
       <div id="footer">
           <li>
               <div id="footerbuttons">
-                  <a class="navbuttons" id="prevButton">« Previous</a>
-                  <a class="navbuttons" id="randButton">Random Action</a>
-                  <a class="navbuttons" id="nextButton">Next »</a>
+	              <a class="navbuttons" id="prevButton">« Previous</a>
+	              <a class="navbuttons" id="randButton">Random Action</a>
+	              <a class="navbuttons" id="nextButton">Next »</a>
               </div>
           </li>
       </div>
@@ -245,35 +245,12 @@
 
       // Get the id passed into the url, e.g. https://georgy-k-zhukov.github.io/fencing/?id=1
       const urlParams = new URLSearchParams(window.location.search);
-
-      // Make sure that the id variable is an integer, don't forget the base 10 radix
       const id = parseInt(urlParams.get("id"), 10);
 
       // We're only concerned with one action
       const action = actions[id];
 
-      /*
-       * Get all the important html elements from the page by their id and assign them to variables
-       * An odd legacy quirk of javascript is that all elements with ids are assigned to a variable
-       * with global scope already. e.g.
-       *
-       *     <a id="googleLink" href='http://www.google.com">Google</a>
-       *
-       *     <script>
-       *        console.log(googleLink.href); // logs "http://www.google.com" to the console
-       *     </script>
-       *
-       * However this is generally considered not good practice. Explicitly assigning the element to
-       * a variable like so:
-       *
-       *     <script>
-       *         const googleLink = document.getElementById("googleLink");
-       *         console.log(googleLink.href); // logs "http://www.google.com" to the console
-       *     </script>
-       *
-       * is preferred. One reason is that you can have your variable name, different than your id,
-       * but there are some more reasons around inter-portability and variable scope as well
-       */
+      // Get all the important html elements from the page by their id and assign them to variables
 
       // Get the video title
       const videoTitle = document.getElementById("videoTitle");
@@ -290,11 +267,6 @@
       // The gfycat and youtube links
       const gfycatLink = document.getElementById("gfycatLink");
       const youtubeLink = document.getElementById("youtubeLink");
-
-      // assign the buttons to variables
-      const nextButton = document.getElementById("nextButton");
-      const prevButton = document.getElementById("prevButton");
-      const randButton = document.getElementById("randButton");
 
       // Populate the answer and call explanation fields. These are hidden and will be shown when the user
       // clicks the show the call button
@@ -314,15 +286,12 @@
       // Set the gfycat and youtube links
       gfycatLink.href = action.gfyLink;
       youtubeLink.href = action.youtubeLink;
-
-      // Do the math calculations separately from the string concatination to prevent "?id=" + 1 + 1 turning into ?id=11
-      const nextId = id + 1;
-      const prevId = id - 1;
-
+      
       // Navigation stuff, AKA georgy hopefully not fucking things up
-      nextButton.href = '?id=' + nextId;
-      prevButton.href = '?id=' + prevId;
-      randButton.href = '?id=' + Math.floor(Math.random() * Math.floor(actions.length));
+      nextButton.href = '?id=' + id + 1;
+	  prevButton.href = '?id=' + id - 1;
+	  randButton.href = '?id=' + Math.floor(Math.random() * Math.floor(actions.length));
+      
     }
 
     // We have to actually run the loadPage function
