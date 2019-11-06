@@ -93,9 +93,9 @@
       <div id="footer">
           <li>
               <div id="footerbuttons">
-	              <a class="navbuttons" id="prevButton">Previous</a>
+	              <a class="navbuttons" id="prevButton">« Previous</a>
 	              <a class="navbuttons" id="randButton">Random Action</a>
-	              <a class="navbuttons" id="nextButton">Next</a>
+	              <a class="navbuttons" id="nextButton">Next »</a>
               </div>
           </li>
       </div>
@@ -245,7 +245,7 @@
 
       // Get the id passed into the url, e.g. https://georgy-k-zhukov.github.io/fencing/?id=1
       const urlParams = new URLSearchParams(window.location.search);
-      const id = urlParams.get("id");
+      const id = parseInt(urlParams.get("id"), 10);
 
       // We're only concerned with one action
       const action = actions[id];
