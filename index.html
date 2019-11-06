@@ -93,9 +93,9 @@
       <div id="footer">
           <li>
               <div id="footerbuttons">
-	              <a class="navbuttons" id="prevButton">« Previous</a>
-	              <a class="navbuttons" id="randButton">Random Action</a>
-	              <a class="navbuttons" id="nextButton">Next »</a>
+                  <a class="navbuttons" id="prevButton">« Previous</a>
+                  <a class="navbuttons" id="randButton">Random Action</a>
+                  <a class="navbuttons" id="nextButton">Next »</a>
               </div>
           </li>
       </div>
@@ -321,8 +321,8 @@
 
       // Navigation stuff, AKA georgy hopefully not fucking things up
       nextButton.href = '?id=' + nextId;
-	  prevButton.href = '?id=' + prevId;
-	  randButton.href = '?id=' + Math.floor(Math.random() * Math.floor(actions.length));
+      prevButton.href = '?id=' + prevId;
+      randButton.href = '?id=' + Math.floor(Math.random() * Math.floor(actions.length));
     }
 
     // We have to actually run the loadPage function
