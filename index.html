@@ -15,9 +15,8 @@
               <div class="dropdown">
                 <button class="dropmenu">Clips &#9662;</button>
                 <div class="dropdown-content">
-                  <a href="#EasyCalls">Easy Calls</a>
-                  <a href="#SeparationCalls">Separation Calls</a>
-                  <a href="#OtherCalls">Other Calls</a>
+                  <a href="index.html?id=1&callType=Easy Calls">Easy Calls</a>
+                  <a href="index.html?id=1&callType=Separation Calls">Separation Calls</a>
                   <a href="index.html?id=1">All Calls</a>
                 </div>
               </div>
@@ -241,13 +240,20 @@
      */
     async function loadPage() {
       // Await the fetchSheetData and assign it to an array called `actions`
-      const actions = await fetchSheetData();
+      let actions = await fetchSheetData();
 
       // Get the id passed into the url, e.g. https://georgy-k-zhukov.github.io/fencing/?id=1
       const urlParams = new URLSearchParams(window.location.search);
 
       // Make sure that the id variable is an integer, don't forget the base 10 radix
       const id = parseInt(urlParams.get("id"), 10);
+
+      const callType = urlParams.get("callType");
+      let callTypeParam = '';
+      if (callType !== null) {
+        actions = actions.filter(action => action.callType.toLowerCase() === callType.toLowerCase());
+        callTypeParam = '&callType=' + callType;
+      }
 
       // We're only concerned with one action
       const action = actions[id];
@@ -314,9 +320,9 @@
       const prevId = id - 1;
 
       // Navigation stuff, AKA georgy hopefully not fucking things up
-      nextButton.href = '?id=' + nextId;
-      prevButton.href = '?id=' + prevId;
-      randButton.href = '?id=' + Math.floor(Math.random() * Math.floor(actions.length));
+      nextButton.href = '?id=' + nextId + callTypeParam;
+      prevButton.href = '?id=' + prevId + callTypeParam;
+      randButton.href = '?id=' + Math.floor(Math.random() * Math.floor(actions.length)) + callTypeParam;
     }
 
     // We have to actually run the loadPage function
